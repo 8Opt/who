@@ -1,0 +1,21 @@
+[package]
+name = "who"
+version = "0.1.0"
+edition = "2024"
+description = "A simple authentication server"
+license = "MIT"
+authors = ["Le Duc Minh <minh.leduc.0210@gmail.com>"]
+
+[profile.release]
+panic = 'abort'
+
+[dependencies]
+actix-web = "4"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1"
+futures = "0.3"
+dotenv = "0.15.0"
+argonautica = "0.2.0"
+thiserror = "2.0.12"
+sqlx = "0.8.5"
+chrono = "0.4.41"

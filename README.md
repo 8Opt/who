@@ -1,4 +1,3 @@
-
 ## `who`
 
 This project is created to **build a simple authentication service**, including:
@@ -41,8 +40,8 @@ Designed to be easily scalable and extensible for larger systems.
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/auth-service.git
-cd auth-service
+git clone https://github.com/8Opt/who.git
+cd who
 ```
 
 ### 2. Set up environment variables
@@ -80,50 +79,12 @@ http://localhost:8080
 
 ```bash
 who/
-├── main.go
-├── handlers/
-│   ├── auth.go
-│   └── user.go
-├── models/
-│   └── user.go
-├── middleware/
-│   └── jwt_middleware.go
-├── utils/
-│   └── hash.go
-├── config/
-│   └── config.go
-├── database/
-│   └── postgres.go
-├── go.mod
-└── go.sum
+
 ```
 
----
-
-## 🔒 Security Features
-
-- Passwords are securely hashed using **bcrypt**.
-- JWT tokens are signed using **strong secret keys**.
-- Refresh tokens are securely stored and validated.
-- Rate limiting (recommended to implement) for login endpoints.
-
----
-
-## 📌 TODOs and Future Enhancements
-
-- OAuth2 (Google, Facebook login)
-- Email verification
-- Password reset flow
-- Admin user management
-- Docker-Compose orchestration
-- Prometheus + Grafana monitoring
 
 ---
 
 ## 📄 License
 
 This project is open-source under the [MIT License](LICENSE).
-
----
-```
-
