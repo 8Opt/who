@@ -11,17 +11,15 @@ This project is created to **build a simple authentication service**, including:
 
 Designed to be easily scalable and extensible for larger systems.
 
----
 
 ## ⚙️ Tech Stack
 
-- **Golang** (Gin / Fiber web framework)
+- **Rust** (Actix web framework)
 - **PostgreSQL** (for user storage)
 - **JWT** (for authentication)
 - **bcrypt** (for secure password hashing)
 - **Docker** (for containerization)
 
----
 
 ## 🚀 API Endpoints
 
@@ -33,7 +31,6 @@ Designed to be easily scalable and extensible for larger systems.
 | `/auth/logout`   | POST   | Logout and invalidate refresh token        |
 | `/auth/me`       | GET    | Get current user profile (protected route) |
 
----
 
 ## 🛠 Setup & Run
 
@@ -64,8 +61,7 @@ docker run --name auth-postgres -e POSTGRES_PASSWORD=password -e POSTGRES_USER=u
 ### 4. Run the application
 
 ```bash
-go mod tidy
-go run main.go
+cargo run
 ```
 
 The service will be available at:  
@@ -73,17 +69,19 @@ The service will be available at:
 http://localhost:8080
 ```
 
----
 
 ## 🧩 Project Structure
 
 ```bash
 who/
-
+├── src/
+│   ├── core/
+│   ├── models/
+│   ├── routes/
+│   └── utils/
+└── test/
 ```
 
-
----
 
 ## 📄 License
 

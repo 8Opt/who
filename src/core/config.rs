@@ -4,7 +4,7 @@ use std::env;
 #[allow(dead_code)]
 #[derive(Debug, Clone)]
 pub struct Config {
-    pub app_name: String,
+    pub app: String,
     pub port: i32,
     pub host: String,
 
@@ -24,7 +24,7 @@ impl Config {
         dotenv().ok();
         Config {
             // APP
-            app_name: env::var("APP").unwrap_or_else(|_| "who".to_string()),
+            app: env::var("APP").unwrap_or_else(|_| "who".to_string()),
             port: env::var("PORT").unwrap_or_else(|_| "8080".to_string()).parse().unwrap_or(8080),
             host: env::var("HOST").unwrap_or_else(|_| "127.0.0.1".to_string()),
 
@@ -44,8 +44,8 @@ impl Config {
         }
     }
 
-    pub fn get_app_name(&self) -> () {
-        println!("App {} is running on {}:{}", self.app_name, self.host, self.port);
+    pub fn get_app_info(&self) -> () {
+        println!("App {} is running on {}:{}", self.app, self.host, self.port);
     }
 
     pub fn get_db_info(&self) -> () {

@@ -17,3 +17,9 @@ pub async fn update(user: AuthUpdate) -> Result<(), AuthError> {
 pub async fn delete(user_id: Uuid) -> Result<(), AuthError> {
     
 }
+
+
+pub async fn me(user_id: Uuid) -> Result<(), AuthError> {
+    
+}
+
