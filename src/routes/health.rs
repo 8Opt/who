@@ -1,19 +1,16 @@
-use actix_web::{get, web, HttpResponse, Responder};
+use actix_web::{HttpResponse, Responder, get, web};
 
-#[get("/healthz")]
+#[get("/z")]
 async fn health() -> impl Responder {
     HttpResponse::Ok().body(format!("OK"))
 }
 
-#[get("/hello-world")]
+#[get("/hello")]
 async fn hello() -> impl Responder {
     HttpResponse::Ok().body(format!("Hello from base!"))
 }
 
-
 // Export the route config
 pub fn routes(cfg: &mut web::ServiceConfig) {
-    cfg.service(health);
-    cfg.service(hello);
+    cfg.service(web::scope("/health").service(health).service(hello));
 }
-

@@ -25,7 +25,10 @@ impl Config {
         Config {
             // APP
             app: env::var("APP").unwrap_or_else(|_| "who".to_string()),
-            port: env::var("PORT").unwrap_or_else(|_| "8080".to_string()).parse().unwrap_or(8080),
+            port: env::var("PORT")
+                .unwrap_or_else(|_| "8080".to_string())
+                .parse()
+                .unwrap_or(8080),
             host: env::var("HOST").unwrap_or_else(|_| "127.0.0.1".to_string()),
 
             // JWT
@@ -33,22 +36,18 @@ impl Config {
             salt: env::var("SALT").unwrap_or_else(|_| "secret".to_string()),
             jwt_expiration: env::var("JWT_EXPIRATION")
                 .unwrap_or_else(|_| "1".to_string())
-                .parse().unwrap_or(1),
+                .parse()
+                .unwrap_or(1),
 
             // DB
             db_host: env::var("DB_HOST").unwrap_or_else(|_| "localhost".to_string()),
-            db_port: env::var("DB_PORT").unwrap_or_else(|_| "5432".to_string()).parse().unwrap_or(5432),
+            db_port: env::var("DB_PORT")
+                .unwrap_or_else(|_| "5432".to_string())
+                .parse()
+                .unwrap_or(5432),
             db_user: env::var("DB_USER").unwrap_or_else(|_| "postgres".to_string()),
             db_password: env::var("DB_PASSWORD").unwrap_or_else(|_| "postgres".to_string()),
             db_name: env::var("DB_NAME").unwrap_or_else(|_| "who".to_string()),
         }
-    }
-
-    pub fn get_app_info(&self) -> () {
-        println!("App {} is running on {}:{}", self.app, self.host, self.port);
-    }
-
-    pub fn get_db_info(&self) -> () {
-        println!("Database {} is running on {}:{}", self.db_name, self.db_host, self.db_port);
     }
 }

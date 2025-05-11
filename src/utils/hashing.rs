@@ -1,7 +1,6 @@
 /// Defines functions to hash passwords, and verify those hashes.
 use crate::error::AuthError;
 
-
 use argonautica::{Hasher, Verifier};
 
 pub struct Argon2id;
@@ -47,16 +46,15 @@ impl Argon2id {
     }
 }
 
+// fn main() {
+//     let password = "P@ssw0rd".to_string();
 
-fn main() {
-    let password = "P@ssw0rd".to_string();
+//     let hash = Argon2id::hash_password(&password).expect("hash_password returned an error");
 
-    let hash = Argon2id::hash_password(&password).expect("hash_password returned an error");
+//     println!("Hash: {}", hash);
+//     let is_match =
+//         Argon2id::verify_password(&password, &hash).expect("verify_password returned an error");
 
-    println!("Hash: {}", hash);
-    let is_match =
-        Argon2id::verify_password(&password, &hash).expect("verify_password returned an error");
-
-    println!("Is match: {}", is_match);
-    assert!(is_match);
-}
+//     println!("Is match: {}", is_match);
+//     assert!(is_match);
+// }
