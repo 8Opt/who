@@ -1,4 +1,3 @@
-
 ## `who`
 
 This project is created to **build a simple authentication service**, including:
@@ -12,17 +11,15 @@ This project is created to **build a simple authentication service**, including:
 
 Designed to be easily scalable and extensible for larger systems.
 
----
 
 ## ⚙️ Tech Stack
 
-- **Golang** (Gin / Fiber web framework)
+- **Rust** (Actix web framework)
 - **PostgreSQL** (for user storage)
 - **JWT** (for authentication)
 - **bcrypt** (for secure password hashing)
 - **Docker** (for containerization)
 
----
 
 ## 🚀 API Endpoints
 
@@ -34,15 +31,14 @@ Designed to be easily scalable and extensible for larger systems.
 | `/auth/logout`   | POST   | Logout and invalidate refresh token        |
 | `/auth/me`       | GET    | Get current user profile (protected route) |
 
----
 
 ## 🛠 Setup & Run
 
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/auth-service.git
-cd auth-service
+git clone https://github.com/8Opt/who.git
+cd who
 ```
 
 ### 2. Set up environment variables
@@ -65,8 +61,7 @@ docker run --name auth-postgres -e POSTGRES_PASSWORD=password -e POSTGRES_USER=u
 ### 4. Run the application
 
 ```bash
-go mod tidy
-go run main.go
+cargo run
 ```
 
 The service will be available at:  
@@ -74,56 +69,20 @@ The service will be available at:
 http://localhost:8080
 ```
 
----
 
 ## 🧩 Project Structure
 
 ```bash
 who/
-├── main.go
-├── handlers/
-│   ├── auth.go
-│   └── user.go
-├── models/
-│   └── user.go
-├── middleware/
-│   └── jwt_middleware.go
-├── utils/
-│   └── hash.go
-├── config/
-│   └── config.go
-├── database/
-│   └── postgres.go
-├── go.mod
-└── go.sum
+├── src/
+│   ├── core/
+│   ├── models/
+│   ├── routes/
+│   └── utils/
+└── test/
 ```
 
----
-
-## 🔒 Security Features
-
-- Passwords are securely hashed using **bcrypt**.
-- JWT tokens are signed using **strong secret keys**.
-- Refresh tokens are securely stored and validated.
-- Rate limiting (recommended to implement) for login endpoints.
-
----
-
-## 📌 TODOs and Future Enhancements
-
-- OAuth2 (Google, Facebook login)
-- Email verification
-- Password reset flow
-- Admin user management
-- Docker-Compose orchestration
-- Prometheus + Grafana monitoring
-
----
 
 ## 📄 License
 
 This project is open-source under the [MIT License](LICENSE).
-
----
-```
-
